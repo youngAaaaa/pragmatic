@@ -3,16 +3,23 @@
 
 {% block content %}
 
-<div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-    <div>
+<div>
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
         <p>
             {{ target_user.date_joined }}
         </p>
-    </div>
-    <div>
-        <h2>
+        <h2 style="font-family: 'NanumSquareRoundOTFR'">
             {{ target_user.username }}
         </h2>
+
+        {% if target_user == user %}
+
+        <a href="{% url 'accountapp:update' pk=user.pk %}">
+            <p>
+                Change Info
+            </p>
+        </a>
+        {% endif %}
     </div>
 </div>
 
